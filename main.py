@@ -30,6 +30,7 @@ textTags = nltk.pos_tag(textData)
 #remove duplicates from the tag list
 manTags = list(set(textTags))
 
+print "Please enter a word that fits each type given:"
 outputString = description
 for index in range(15):
     #get a random tag from the tagList
@@ -58,7 +59,8 @@ for index in range(15):
         print "TYPE: ADVERB"
     elif wordType == "PRPS" or wordType == "PRP$":
         print "TYPE: PREPOSITION"
-    
+    else:
+        print "TYPE: UNKNOWN"
     #print randTag
     
     #Get a list of all the indices at which a word/tag pair occurs
