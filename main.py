@@ -13,10 +13,13 @@ import random
 with open ("petitions.json", "r") as myfile:
     dataJson=myfile.read().replace('\n', '')
 data = json.loads(dataJson)
-data = data['results'][random.randint(0, len(data['results'])-1)]['body']
+dataID = random.randint(0, len(data['results'])-1)
+description = data['results'][dataID]['body']
 #print json.dumps(data, sort_keys=True, indent=4 * ' ')
 #print data
-description = data
+
+#Tell the user the tile of the petition
+print "Title: " + data['results'][dataID]['title']
 
 #tokenize the description into a list of words
 textData = nltk.word_tokenize(description)
@@ -28,7 +31,7 @@ textTags = nltk.pos_tag(textData)
 manTags = list(set(textTags))
 
 outputString = description
-for index in range(5):
+for index in range(15):
     #get a random tag from the tagList
     randTag =  manTags[random.randint(0,len(manTags)-1)]
     
@@ -68,5 +71,5 @@ for index in range(5):
     replWord = raw_input()
     
     #Now lets replace each occurance of that word with Butts!
-    outputString = outputString.replace(" "+randTag[0], replWord)
+    outputString = outputString.replace(" "+randTag[0], " "+replWord)
 print outputString
