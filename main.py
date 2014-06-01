@@ -13,7 +13,7 @@ import random
 with open ("petitions.json", "r") as myfile:
     dataJson=myfile.read().replace('\n', '')
 data = json.loads(dataJson)
-data = data['results'][random.randint(0, len(data['results']))]['body']
+data = data['results'][random.randint(0, len(data['results'])-1)]['body']
 #print json.dumps(data, sort_keys=True, indent=4 * ' ')
 #print data
 description = data
@@ -30,19 +30,43 @@ manTags = list(set(textTags))
 outputString = description
 for index in range(5):
     #get a random tag from the tagList
-    randTag =  manTags[random.randint(0,len(manTags))]
+    randTag =  manTags[random.randint(0,len(manTags)-1)]
     
-    print randTag
+    wordType = randTag[1]
+    #print wordType
+    if wordType == "," or wordType == "TO" or wordType == "." or wordType == "POS" or wordType == "-NONE-" or wordType == ":" or wordType == "CD" or wordType == "DT":
+        index-=1
+        break
+    elif wordType == "IN":
+        print "TYPE: INTERJECTION"
+    elif wordType == "CC":
+        print "TYPE: CONJUNCTION"
+    elif wordType == "NN" or wordType == "WP":
+        print "TYPE: NOUN"
+    elif wordType == "NNS":
+        print "TYPE: NOUN (PLURAL)"
+    elif wordType == "NNP" or wordType == "PRP":
+        print "TYPE: PRONOUN"
+    elif wordType == "VB" or wordType == "VBG" or wordType == "VBP" or wordType == "VBZ" or wordType == "VBN":
+        print "TYPE: VERB"
+    elif wordType == "JJ":
+        print "TYPE: ADJECTIVE"
+    elif wordType == "RB":
+        print "TYPE: ADVERB"
+    elif wordType == "PRPS" or wordType == "PRP$":
+        print "TYPE: PREPOSITION"
+    
+    #print randTag
     
     #Get a list of all the indices at which a word/tag pair occurs
     replacementIndices = [i for i, x in enumerate(textTags) if x == randTag]
     
-    print replacementIndices
+    #print replacementIndices
     
     
     print "Please type in the replword: "
     replWord = raw_input()
     
     #Now lets replace each occurance of that word with Butts!
-    outputString = outputString.replace(randTag[0], replWord)
+    outputString = outputString.replace(" "+randTag[0], replWord)
 print outputString
