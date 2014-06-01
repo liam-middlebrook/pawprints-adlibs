@@ -27,4 +27,4 @@ Once you have the downloader open:
 
 ## Using
 
-This script takes no parameters, just simply `./main.py` to execute it!
+This script takes no parameters, just simply `./adlibs.py` to execute it!
