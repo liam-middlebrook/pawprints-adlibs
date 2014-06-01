@@ -49,24 +49,20 @@ for index in range(15):
     if wordType == "," or wordType == "TO" or wordType == "." or wordType == "POS" or wordType == "-NONE-" or wordType == ":" or wordType == "CD" or wordType == "DT":
         index-=1
         continue
-    elif wordType == "IN":
-        print "TYPE: INTERJECTION"
-    elif wordType == "CC":
-        print "TYPE: CONJUNCTION"
     elif wordType == "NN" or wordType == "WP":
         print "TYPE: NOUN"
     elif wordType == "NNS":
         print "TYPE: NOUN (PLURAL)"
-    elif wordType == "NNP" or wordType == "PRP":
+    elif wordType == "NNP":
         print "TYPE: PRONOUN"
+    elif wordType == "PRP" or wordType == "PRPS" or wordType == "PRP$":
+        print "TYPE: PROPER NOUN"
     elif wordType == "VB" or wordType == "VBG" or wordType == "VBP" or wordType == "VBZ" or wordType == "VBN":
         print "TYPE: VERB"
     elif wordType == "JJ":
         print "TYPE: ADJECTIVE"
     elif wordType == "RB":
         print "TYPE: ADVERB"
-    elif wordType == "PRPS" or wordType == "PRP$":
-        print "TYPE: PREPOSITION"
     else:
         print "TYPE: UNKNOWN"
     
@@ -76,8 +72,8 @@ for index in range(15):
     print "Please type in a word that matches the above type: "
     replWord = raw_input()
     
-    #Now lets replace each occurance of that word with Butts!
-    outputString = outputString.replace(" "+randTag[0], " "+replWord)
+    #Now lets replace each occurrence of that word with Butts!
+    outputString = outputString.replace(" "+randTag[0]+" ", " "+replWord+" ")
 
 print "\n\nHere is the origional petition: \n"
 print description
