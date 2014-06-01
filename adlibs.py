@@ -2,21 +2,25 @@
 import urllib2
 import simplejson as json
 import nltk
-from collections import Counter
-
 import random
-#dataResponse = urllib2.urlopen('https://api.whitehouse.gov/v1/petitions.json?limit=300&offset=0')
-#dataInfo = dataResponse.info()
-#dataJson = dataResponse.read()
-#dataResponse.close()
 
-with open ("petitions.json", "r") as myfile:
-    dataJson=myfile.read().replace('\n', '')
+#Lets pull down the petitions from whitehouse.gov
+dataResponse = urllib2.urlopen('https://api.whitehouse.gov/v1/petitions.json?limit=300&offset=0')
+dataJson = dataResponse.read()
+dataResponse.close()
+
+#Read the flatfile of petitions
+#with open ("petitions.json", "r") as myfile:
+#    dataJson=myfile.read().replace('\n', '')
+
+#Lets parse the data from JSON to objects!
 data = json.loads(dataJson)
+
+#Get a random petition
 dataID = random.randint(0, len(data['results'])-1)
+
+#Get the description of that petition
 description = data['results'][dataID]['body']
-#print json.dumps(data, sort_keys=True, indent=4 * ' ')
-#print data
 
 #Tell the user the tile of the petition
 print "Title: " + data['results'][dataID]['title']
@@ -32,15 +36,19 @@ manTags = list(set(textTags))
 
 print "Please enter a word that fits each type given:"
 outputString = description
+
+#Lets add up to fifteen changed words in the petition
 for index in range(15):
     #get a random tag from the tagList
     randTag =  manTags[random.randint(0,len(manTags)-1)]
     
+    #Get the 'type' or word we are dealing with
     wordType = randTag[1]
-    #print wordType
+    
+    #Either query the user for a word of certain type or skip the word type if it's not good for adlibbing
     if wordType == "," or wordType == "TO" or wordType == "." or wordType == "POS" or wordType == "-NONE-" or wordType == ":" or wordType == "CD" or wordType == "DT":
         index-=1
-        break
+        continue
     elif wordType == "IN":
         print "TYPE: INTERJECTION"
     elif wordType == "CC":
@@ -61,15 +69,11 @@ for index in range(15):
         print "TYPE: PREPOSITION"
     else:
         print "TYPE: UNKNOWN"
-    #print randTag
     
     #Get a list of all the indices at which a word/tag pair occurs
     replacementIndices = [i for i, x in enumerate(textTags) if x == randTag]
     
-    #print replacementIndices
-    
-    
-    print "Please type in the replword: "
+    print "Please type in a word that matches the above type: "
     replWord = raw_input()
     
     #Now lets replace each occurance of that word with Butts!
