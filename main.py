@@ -74,4 +74,8 @@ for index in range(15):
     
     #Now lets replace each occurance of that word with Butts!
     outputString = outputString.replace(" "+randTag[0], " "+replWord)
+
+print "\n\nHere is the origional petition: \n"
+print description
+print "\n\nHere is what you created\n"
 print outputString
