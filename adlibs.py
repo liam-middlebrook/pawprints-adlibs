@@ -1,9 +1,13 @@
 #We the people adlibs py
 import urllib2
-import simplejson as json
 import nltk
 import random
 import argparse
+
+try:
+    import simplejson as json
+except ImportError:
+    import json
 
 p = argparse.ArgumentParser()
 
@@ -49,10 +53,10 @@ outputString = description
 for index in range(15):
     #get a random tag from the tagList
     randTag =  manTags[random.randint(0,len(manTags)-1)]
-    
+
     #Get the 'type' or word we are dealing with
     wordType = randTag[1]
-    
+
     #Either query the user for a word of certain type or skip the word type if it's not good for adlibbing
     if wordType == "," or wordType == "TO" or wordType == "." or wordType == "POS" or wordType == "-NONE-" or wordType == ":" or wordType == "CD" or wordType == "DT":
         index-=1
@@ -74,13 +78,13 @@ for index in range(15):
     else:
         index-=1
         continue
-    
+
     #Get a list of all the indices at which a word/tag pair occurs
     replacementIndices = [i for i, x in enumerate(textTags) if x == randTag]
-    
+
     print "Please type in a word that matches the above type: "
     replWord = raw_input()
-    
+
     #Now lets replace each occurrence of that word with Butts!
     outputString = outputString.replace(" "+randTag[0]+" ", " "+replWord+" ")
 
