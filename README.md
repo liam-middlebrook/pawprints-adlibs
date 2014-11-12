@@ -1,7 +1,7 @@
-wethepeople-adlibs
+pawprints-adlibs
 ==================
 
-If you haven't visited https://petitions.whitehouse.gov/ you should go take a look at it's list of petitions right now. A lot of the petitions on the website are very serious and have a purpose behind them. On the other hand there are petitions that are less serious (or may appear to be).
+If you haven't visited http://pawprints.rit.edu/ you should go take a look at it's list of petitions right now. A lot of the petitions on the website are very serious and have a purpose behind them. On the other hand there are petitions that are less serious (or may appear to be).
 
 This script pulls down the petitions from the website and then gives the user several queries to choose words to replace words that were written into the descriptions of the petitions.
 

@@ -3,9 +3,17 @@ import urllib2
 import simplejson as json
 import nltk
 import random
+import argparse
 
+p = argparse.ArgumentParser()
+
+p.add_argument("key", nargs="+", help="Your PawPrints API Key")
+
+args = p.parse_args()
+
+api_key = args.key[0]
 #Lets pull down the petitions from whitehouse.gov
-dataResponse = urllib2.urlopen('https://api.whitehouse.gov/v1/petitions.json?limit=300&offset=0')
+dataResponse = urllib2.urlopen('https://pawprints.rit.edu/v1/petitions?key=' + api_key + '&limit=500')
 dataJson = dataResponse.read()
 dataResponse.close()
 
@@ -17,13 +25,13 @@ dataResponse.close()
 data = json.loads(dataJson)
 
 #Get a random petition
-dataID = random.randint(0, len(data['results'])-1)
+dataID = random.randint(0, len(data)-1)
 
 #Get the description of that petition
-description = data['results'][dataID]['body']
+description = data[dataID]['description']
 
 #Tell the user the tile of the petition
-print "Title: " + data['results'][dataID]['title']
+print "Title: " + data[dataID]['title']
 
 #tokenize the description into a list of words
 textData = nltk.word_tokenize(description)
