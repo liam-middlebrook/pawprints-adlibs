@@ -72,7 +72,8 @@ for index in range(15):
     elif wordType == "RB":
         print "TYPE: ADVERB"
     else:
-        print "TYPE: UNKNOWN"
+        index-=1
+        continue
     
     #Get a list of all the indices at which a word/tag pair occurs
     replacementIndices = [i for i, x in enumerate(textTags) if x == randTag]
