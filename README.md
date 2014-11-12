@@ -39,7 +39,7 @@ This script pulls down the petitions from the website and then gives the user se
   Once you have the downloader open:
   
   1. Set the installation directory to `/usr/share/nltk_data`
-  2. Download the package `maxent_treebank_pos_tagger`
+  2. Download the packages `maxent_treebank_pos_tagger` and `punkt`
 
 #### On Windows:
 
@@ -54,7 +54,7 @@ This script pulls down the petitions from the website and then gives the user se
   Once you have the downloader open:
   
   1. Set the installation directory to `C:\nltk_data`
-  2. Download the package `maxent_treebank_pos_tagger`
+  2. Download the packages `maxent_treebank_pos_tagger` and `punkt`
 
 ## Using
 
