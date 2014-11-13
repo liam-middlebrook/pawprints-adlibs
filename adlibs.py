@@ -1,6 +1,6 @@
 #We the people adlibs py
 import urllib2
-import nltk
+from textblob import TextBlob
 import random
 import argparse
 
@@ -37,11 +37,7 @@ description = data[dataID]['description']
 #Tell the user the tile of the petition
 print "Title: " + data[dataID]['title']
 
-#tokenize the description into a list of words
-textData = nltk.word_tokenize(description)
-
-#pair the words with their tags (adjective, verb, noun, etc.)
-textTags = nltk.pos_tag(textData)
+textTags = TextBlob(description).tags
 
 #remove duplicates from the tag list
 manTags = list(set(textTags))

@@ -7,38 +7,11 @@ This script pulls down the petitions from the website and then gives the user se
 
 ## Installing Prerequisites
 
-### NLTK (Python Natural Language Toolkit)
+You need to install TextBlob and NumPy. With Pip we can do this very simply.
 
-#### On GNU/Linux:
-
-  1. First you need to install NLTK do so by following the link below:
-  http://www.nltk.org/install.html
-  2. Next you need to download some NLTK data
-  3. Open up a python shell (as root) `sudo python`
-  4. Open the NLTK downloader
-  ```
-  import nltk
-  nltk.download()
-  ```
-  Once you have the downloader open:
-  
-  1. Set the installation directory to `/usr/share/nltk_data`
-  2. Download the packages `maxent_treebank_pos_tagger` and `punkt`
-
-#### On Windows:
-
-  1. First you need to install NLTK do so by following the windows installation instructions in the link below:
-  http://www.nltk.org/install.html
-  2. Next you need to download some NLTK data
-  3. Open up a python shell and enter the following command to open up the NLTK downloader
-  ```
-  import nltk
-  nltk.download()
-  ```
-  Once you have the downloader open:
-  
-  1. Set the installation directory to `C:\nltk_data`
-  2. Download the packages `maxent_treebank_pos_tagger` and `punkt`
+```
+pip install textblob numpy
+```
 
 ### simplejson (optional)
 
