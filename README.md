@@ -10,7 +10,9 @@ This script pulls down the petitions from the website and then gives the user se
 You need to install TextBlob and NumPy. With Pip we can do this very simply.
 
 ```
-pip install textblob numpy
+$ pip install numpy
+$ pip install -U textblob
+$ python -m textblob.download_corpora
 ```
 
 ### simplejson (optional)
@@ -19,7 +21,7 @@ pip install textblob numpy
 
   1. Open up a terminal and run the following command
   ```
-  sudo easy_install simplejson
+  $ sudo easy_install simplejson
   ```
 
 #### On Windows:
