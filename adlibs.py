@@ -54,23 +54,75 @@ for index in range(15):
     wordType = randTag[1]
 
     #Either query the user for a word of certain type or skip the word type if it's not good for adlibbing
-    if wordType == "," or wordType == "TO" or wordType == "." or wordType == "POS" or wordType == "-NONE-" or wordType == ":" or wordType == "CD" or wordType == "DT":
+    if wordType == "," or wordType == "TO" or wordType == "." or wordType == "-NONE-" or wordType == ":" or wordType == "CD" or wordType == "LS":
         index-=1
         continue
-    elif wordType == "NN" or wordType == "WP":
-        print "TYPE: NOUN"
-    elif wordType == "NNS":
-        print "TYPE: NOUN (PLURAL)"
-    elif wordType == "NNP":
-        print "TYPE: PRONOUN"
-    elif wordType == "PRP" or wordType == "PRPS" or wordType == "PRP$":
-        print "TYPE: PROPER NOUN"
-    elif wordType == "VB" or wordType == "VBG" or wordType == "VBP" or wordType == "VBZ" or wordType == "VBN":
-        print "TYPE: VERB"
+    elif wordType == "CC":
+        print "TYPE: COORDINATING CONJUNCTION"
+    elif wordType == "DT":
+        print "TYPE: DETERMINER"
+    elif wordType == "EX":
+        print "TYPE: EXISTENTIAL THERE"
+    elif wordType == "FW":
+        print "TYPE: FOREIGN WORD"
+    elif wordType == "IN":
+        print "TYPE: PREPOSITION OR SUBORDINATING CONJUNCTION"
     elif wordType == "JJ":
         print "TYPE: ADJECTIVE"
+    elif wordType == "JJR":
+        print "TYPE: ADJECTIVE COMPARATIVE"
+    elif wordType == "JJS":
+        print "TYPE: ADJECTIVE SUPERLATIVE"
+    elif wordType == "MD":
+        print "TYPE: MODAL"
+    elif wordType == "NN":
+        print "TYPE: NOUN SINGLUAR OR MASS"
+    elif wordType == "NNS":
+        print "TYPE: NOUN PLURAL"
+    elif wordType == "NNP":
+        print "TYPE: PROPER NOUN SINGULAR"
+    elif wordType == "NNPS":
+        print "TYPE: PROPER NOUN PLURAL"
+    elif wordType == "PDT":
+        print "TYPE: PREDETERMINER"
+    elif wordType == "POS":
+        print "TYPE: POSSESSIVE ENDING"
+    elif wordType == "PRP":
+        print "TYPE: PERSONAL PRONOUN"
+    elif wordType == "PRP$":
+        print "TYPE: POSSESIVE PRONOUN"
     elif wordType == "RB":
         print "TYPE: ADVERB"
+    elif wordType == "RBR":
+        print "TYPE: ADVERB COMPARATIVE"
+    elif wordType == "RBS":
+        print "TYPE: ADVERB SUPERLATIVE"
+    elif wordType == "RP":
+        print "TYPE: PARTICLE"
+    elif wordType == "SYM":
+        print "TYPE: SYMBOL"
+    elif wordType == "UH":
+        print "TYPE: INTERJECTION"
+    elif wordType == "VB":
+        print "TYPE: VERB BASE FORM"
+    elif wordType == "VBD":
+        print "TYPE: VERB PAST TENSE"
+    elif wordType == "VBG":
+        print "TYPE: VERB GERUND OR PRESENT PARTICIPLE"
+    elif wordType == "VBN":
+        print "TYPE: VERB PAST PARTICIPLE"
+    elif wordType == "VBP":
+        print "TYPE: VERB NON 3RD PERSON SINGULAR PRESENT"
+    elif wordType == "VBZ":
+        print "TYPE: VERB 3RD PERSON SINGULAR PRESENT"
+    elif wordType == "WDT":
+        print "TYPE: WH-DETERMINER"
+    elif wordType == "WP":
+        print "TYPE: WH-PRONOUN"
+    elif wordType == "WP$":
+        print "TYPE: POSSESIVE WH-PRONOUN"
+    elif wordType == "WRB":
+        print "TYPE: WH-ADVERB"
     else:
         index-=1
         continue
